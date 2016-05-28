@@ -1,0 +1,6 @@
+usr/local/bin/revolvercoin-qt usr/bin
+share/pixmaps/revolvercoin32.xpm usr/share/pixmaps
+share/pixmaps/revolvercoin16.xpm usr/share/pixmaps
+share/pixmaps/revolvercoin128.png usr/share/pixmaps
+debian/revolvercoin-qt.desktop usr/share/applications
+debian/revolvercoin-qt.protocol usr/share/kde4/services/

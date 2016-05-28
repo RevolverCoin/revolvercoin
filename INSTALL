@@ -1,0 +1,5 @@
+Building RevolverCoin
+
+See doc/build-*.md for instructions on building revolvercoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of RevolverCoin.

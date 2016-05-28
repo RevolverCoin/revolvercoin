@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  revolvercoind The revolvercoin core server.
+#
+#
+# chkconfig: 345 80 20
+# description: revolvercoind
+# processname: revolvercoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/revolvercoind, see below
+if [ -f /etc/sysconfig/revolvercoind ]; then
+        . /etc/sysconfig/revolvercoind
+fi
+
+RETVAL=0
+
+prog=revolvercoind
+# you can override the lockfile via REVOLVERCOIND_LOCKFILE in /etc/sysconfig/revolvercoind
+lockfile=${REVOLVERCOIND_LOCKFILE-/var/lock/subsys/revolvercoind}
+
+# revolvercoind defaults to /usr/bin/revolvercoind, override with REVOLVERCOIND_BIN
+revolvercoind=${REVOLVERCOIND_BIN-/usr/bin/revolvercoind}
+
+# revolvercoind opts default to -disablewallet, override with REVOLVERCOIND_OPTS
+revolvercoind_opts=${REVOLVERCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $revolvercoind $revolvercoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

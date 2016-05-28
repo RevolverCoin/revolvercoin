@@ -1,0 +1,33 @@
+# /etc/conf.d/revolvercoind: config file for /etc/init.d/revolvercoind
+
+# Config file location
+#REVOLVERCOIND_CONFIGFILE="/etc/revolvercoin/revolvercoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $REVOLVERCOIND_USER)
+#REVOLVERCOIND_PIDDIR="/var/run/revolvercoind"
+
+# What filename to give the pidfile
+#REVOLVERCOIND_PIDFILE="${REVOLVERCOIND_PIDDIR}/revolvercoind.pid"
+
+# Where to write revolvercoind data (be mindful that the blockchain is large)
+#REVOLVERCOIND_DATADIR="/var/lib/revolvercoind"
+
+# User and group to own revolvercoind process
+#REVOLVERCOIND_USER="revolvercoin"
+#REVOLVERCOIND_GROUP="revolvercoin"
+
+# Path to revolvercoind executable
+#REVOLVERCOIND_BIN="/usr/bin/revolvercoind"
+
+# Nice value to run revolvercoind under
+#REVOLVERCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+REVOLVERCOIND_OPTS="-disablewallet"
+
+# The timeout in seconds OpenRC will wait for revolvercoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+REVOLVERCOIND_SIGTERM_TIMEOUT=60

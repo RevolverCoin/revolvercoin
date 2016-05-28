@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=RevolverCoin
+Comment=RevolverCoin P2P Cryptocurrency
+Comment[fr]=RevolverCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=RevolverCoin, eşten eşe kriptografik sanal para birimi
+Exec=revolvercoin-qt %u
+Terminal=false
+Type=Application
+Icon=revolvercoin128
+MimeType=x-scheme-handler/revolvercoin;
+Categories=Office;Finance;
